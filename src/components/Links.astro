@@ -1,0 +1,26 @@
+---
+const links = [
+    {name:"exam-detail", to:"#exam-detail"},
+    {name:"Overview", to:"#overview"},
+    {name:"Super Coaching", to:"#supercourse"},
+    {name:"Quizzes", to:"#quizes"},
+    {name:"Test Series", to:"#test-series"},
+    {name:"Exam Info", to:"#exam-info"}, 
+]
+---
+
+
+<section class='flex justify-center'>
+    <div style="" class='overflow-scroll w-10/12  text-nowrap  md:flex justify-start'>
+            <div class='max-h-12 flex gap-10 py-2 mb-2 bg-white horizontal-nav px-5'>
+                {links.map((link,i)=>{
+                    return (
+                            <a
+                            key={i}
+                            class='pb-2 hover:text-cyan-400 p-1 font-semibold text-gray-600 text-sm hover:border-b hover:border-cyan-400'
+                            href={link.to}>{link.name}</a>
+                    )
+                })}
+            </div>
+        </div>
+   </section>

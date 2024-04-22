@@ -1,0 +1,190 @@
+---
+import { Image } from "astro:assets"
+import Categories from "../components/Categories"
+import { HiUserGroup } from "react-icons/hi";
+import { PiExam } from "react-icons/pi";
+import { MdQuiz } from "react-icons/md";
+import { CgNotes } from "react-icons/cg";
+import Hero from "../components/Hero.astro";
+import NotificationCard from "../components/NotificationCard.astro"
+---
+
+<style>
+  .marquee-container {
+    overflow: hidden; /* Clip overflowing content */
+    white-space: nowrap; /* Prevent line breaks */
+    display: flex;
+  }
+
+  .marquee-content {
+    display: inline-flex; /* Allow inline scrolling */
+    /* gap: 30px; */
+    animation: marquee 15s linear infinite; /* Animation for scrolling */
+  }
+
+  .marquee-image {
+    width: 350px; /* Set fixed width for all images */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Crop if necessary to fit container */
+    margin-right: 100px; /* Add spacing between images */
+  }
+
+  @keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+  
+  <Hero />
+
+  <Categories client:load/>
+
+  <section class='flex p-5 justify-center items-center py-5'>
+    <div style={{backgroundImage: 'radial-gradient(circle, rgba(252,224,236,1) 44%, rgba(217,231,248,1) 100%)'}} class="shadow-lg container lg:w-5/6 text-center text-lg-start my-4 md:px-5 py-4  lg:px-10 lg:py-3">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="flex flex-col justify-center items-center gap-5 md:px-5 px-2 lg:px-10 ">
+          <div class='hidden lg:block'>
+            <h2 class="text-2xl text-start font-bold leading-12">Sarkari Naukri, the one stop shop for all sarkari Naukri Updates and courses </h2>
+          </div>
+          <div class=" flex flex-col items-start  gap-4">
+            <p class='mb-3 hidden lg:block lg:text-lg text-start'>
+              Passion-driven mentors & instructors who believe in exam-oriented preparation
+            </p>
+            {/* <a href={'#'} rel="noreferrer" target="_blank" class="hidden lg:inline-block px-6 py-3 lg:text-lg bg-yellow-400 text-black rounded-lg">Explore IAS courses</a> */}
+          </div>
+        </div>
+        <div class="p-2 flex flex-col">
+          <div class="w-full">
+            <img alt="Prepp IAS Preparation" src='images/new-pic.jpg' decoding="async" class="w-full max-h-64 object-cover rounded-lg" />
+          </div>
+          <div class='bg-white  gap-5 mt-3 rounded-lg p-4 grid grid-cols-2 md:grid-cols-4'>
+            <div class='flex flex-col items-center justify-center'>
+                <span class='text-3xl text-yellow-600' >
+                  <HiUserGroup />
+                </span>  
+                <p class='text-wrap text-gray-600'>Preparation Tips and Plans</p>
+            </div>
+            <div class='flex flex-col items-center justify-center'>
+              <span class='text-3xl text-pink-600' >
+                <PiExam />
+              </span>
+              
+              <p class='text-wrap text-gray-600'>Previous Year Papers</p>
+            </div>
+            <div class='flex flex-col items-center justify-center'>
+              <span class='text-3xl text-green-600' >
+                <MdQuiz />
+              </span>
+              
+              <p class='text-wrap text-gray-600'>Quizes and Mock Tests</p>
+            </div>
+            <div class='flex flex-col items-center justify-center'>
+              <span class='text-3xl text-purple-600' >
+                <CgNotes />
+              </span>
+              
+              <p class='text-wrap text-gray-600'>Daily Study Notes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="px-6 flex flex-col gap-5 py-4 lg:hidden">
+        <h2 class="text-2xl text-start font-bold leading-12">Sarkari Naukri, the one stop shop for all sarkari Naukri Updates and courses </h2>
+        <p class='md:text-lg text-start'>
+          Passion-driven mentors & instructors who believe in exam-oriented preparation
+        </p>
+        {/* <a href="#" rel="noreferrer" target="_blank" class=" lg:hidden inline-block px-6 py-2 lg:text-lg bg-yellow-400 text-black rounded-lg">Explore IAS courses</a> */}
+      </div>
+    </div>
+  </section>
+
+  <section class='flex p-5 justify-center items-center py-5'>
+    <div class="my-4 container lg:w-5/6 text-center text-lg-start py-4 lg:py-3">
+      <div class='flex justify-start'>
+        <h2 class="text-xl font-semibold">Notifications</h2>
+      </div>
+      <div class="grid grid-cols-12 gap-2 my-2 ">
+        <NotificationCard />
+        <NotificationCard />
+        <NotificationCard />
+        <NotificationCard />
+      </div>
+    </div>
+  </section>
+
+
+  <div id="banner" class="flex flex-col bg-gray-50 py-5 mt-8 justify-center">
+    <div class="w-10/12 mx-auto px-4">
+      <div class="text-center flex flex-col gap-3">
+        <div class=" text-lg font-semibold md:text-2xl text-blue-600 lg:text-4xl">Access Sarkari Naukri from the platform of your choice</div>
+        <div class="font-semibold text-gray-600 mb-5 text-sm md:text-base lg:text-lg">Learn at your own pace and make the most of our top-quality content using the device of your choice.</div>
+      </div>
+    </div>
+  
+    
+    <div class="mt-3 pb-4">
+      <div class="overflow-hidden">
+        <div class="marquee-container flex">
+          <div class="marquee-content">
+            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
+            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
+            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
+            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
+            <img class="marquee-image" src="https://image.prepladder.com/content/79f7jYBrRgLuype0ZdMC1673348949.webp" alt="animal2"  />
+            <img class="marquee-image" src="https://image.prepladder.com/content/39CkeCpGjf37wHNh1R0P1676549127.webp" alt="animal3"  />
+            </div>
+        </div>
+      </div>
+    </div>
+      </div>
+   
+    
+  </div>
+  
+
+  <script>
+    // Function to create a marquee element with scrolling animation
+// Function to create a marquee element with scrolling animation
+function createMarquee(containerElement, contentElement, scrollSpeed) {
+
+// Set default scroll speed if not provided
+scrollSpeed = scrollSpeed || 50; // Adjust speed as desired (pixels per second)
+
+// Get element width
+const elementWidth = containerElement.offsetWidth;
+
+// Clone content and append it after the original content
+// const contentClone = contentElement.cloneNode(true);
+// containerElement.appendChild(contentClone);
+
+// Set content width to be double the original element width
+contentElement.style.width = `${elementWidth * 2}px`;
+// contentClone.style.width = `${elementWidth * 2}px`;
+
+// Function to animate scrolling
+function animateScroll() {
+  const currentScrollPosition = contentElement.scrollLeft;
+
+  // Check if content has scrolled completely
+  if (currentScrollPosition + elementWidth >= elementWidth ) {
+    contentElement.scrollLeft = 0; // Reset scroll position
+  } else {
+    contentElement.scrollLeft += scrollSpeed; // Update scroll position
+  }
+
+  // Schedule next animation frame
+  requestAnimationFrame(animateScroll);
+}
+
+// Start the animation loop
+animateScroll();
+}
+
+// Usage example (replace selectors with your actual elements)
+const marqueeContainer = document.querySelector('.marquee-container');
+  const marqueeContent = document.querySelector('.marquee-content');
+
+
+createMarquee(marqueeContainer, marqueeContent, 40); // Adjust speed if needed
+
+  </script>

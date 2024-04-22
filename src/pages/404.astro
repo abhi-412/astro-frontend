@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { IoIosHome } from "react-icons/io";
+
+---
+
+
+<Layout title="Not Found">
+    <div class="">
+        <div class="flex items-center w-full h-screen flex-col gap-5 justify-center">
+            <h1 class="text-5xl font-bold"> OOPS! Something is Wrong</h1>
+            <p class="text-xl"> Seems like the page you are looking for doesnt exist...</p>
+            <a href="/">
+            <button class="flex gap-3 text-white py-2 px-5 bg-purple-500 items-center">Go Home <IoIosHome /> </button>
+            </a>
+        </div>
+    </div>
+
+</Layout>
