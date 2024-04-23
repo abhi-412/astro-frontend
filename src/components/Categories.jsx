@@ -14,7 +14,7 @@ const Categories = () => {
   };
 
   const handleClick = (exam,slug)=>{
-    navigate(`/${slug}`,{exam})
+    navigate("/Exam")
   }
 
   return (
@@ -68,3 +68,5 @@ const Categories = () => {
 };
 
 export default Categories;
+
+
