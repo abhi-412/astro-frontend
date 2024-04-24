@@ -1,11 +1,13 @@
 ---
 import { Image } from "astro:assets"
-import Categories from "../components/Categories"
+import Categories from "../components/Categories.astro"
 import { HiUserGroup } from "react-icons/hi";
 import { PiExam } from "react-icons/pi";
 import { MdQuiz } from "react-icons/md";
 import { CgNotes } from "react-icons/cg";
 import Hero from "../components/Hero.astro";
+import examData from "../../public/data.json"; // Adjust path as needed
+import categoryData from "../../public/categories.json";
 import NotificationCard from "../components/NotificationCard.astro"
 ---
 
@@ -37,7 +39,7 @@ import NotificationCard from "../components/NotificationCard.astro"
   
   <Hero />
 
-  <Categories client:load/>
+  <Categories examData={examData} categoryData={categoryData} />
 
   <section class='flex p-5 justify-center items-center py-5'>
     <div style={{backgroundImage: 'radial-gradient(circle, rgba(252,224,236,1) 44%, rgba(217,231,248,1) 100%)'}} class="shadow-lg container lg:w-5/6 text-center text-lg-start my-4 md:px-5 py-4  lg:px-10 lg:py-3">

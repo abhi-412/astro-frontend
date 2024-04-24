@@ -1,0 +1,145 @@
+---
+// interface Props  {
+
+//   examData : Object,
+//   categoryData: Object,
+// }
+
+const {examData , categoryData} = Astro.props;
+
+// console.log(examData);
+
+---
+
+
+<style>
+  .exam-category {
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide scrollbar on Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar on Internet Explorer/Edge */
+  }
+
+  .exam-category::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on Chrome/Safari/Opera */
+  }
+</style>
+
+<body>
+  <section class="px-5 py-5 mt-4 flex justify-center">
+    <div class="exam-cards container lg:w-10/12 flex flex-col gap-5">
+      <div class="title flex justify-start">
+        <h1 class="text-2xl font-semibold">Choose Your Goal {examData.exams[0].name}</h1>
+      </div>
+
+      <div class="exam-category overflow-hidden bg-white px-5 py-2 rounded-lg">
+      </div>
+
+      <div class="exams-container grid md:grid-cols-3 grid-cols-2 lg:grid-cols-4 gap-6">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Import data from JSON files (replace with actual file paths)
+    import examData from "../../public/data.json"; // Adjust path as needed
+    import categoryData from "../../public/categories.json";
+    import { navigate } from "astro:transitions/client";
+
+    const categories = categoryData.examCategories || []; // Handle potential missing data
+    let selectedCategory = "All";
+
+    async function handleCategory(id) {
+      selectedCategory = id;
+      console.log(selectedCategory);
+      await renderExams();
+      await renderCategories(); // Re-render categories to update selection
+    }
+
+    async function renderExams() {
+
+      const filteredExams = examData.exams.filter((exam) => {
+        if (exam.category) { // Handle potential missing category property
+          return exam.category._id === selectedCategory || selectedCategory === "All";
+        } else {
+          console.warn("Exam object missing 'category' property:", exam);
+          return false; // Exclude exams without category for safety
+        }
+      });
+
+      const examContainer = document.querySelector('.exams-container');
+
+      examContainer.innerHTML = ""; // Clear existing content
+
+      filteredExams.forEach((exam) => {
+        const examCard = document.createElement('button');
+        
+        examCard.classList.add('border', 'exam-card', 'bg-white', 'rounded', 'flex', 'flex-col', 'lg:flex-row', 'md:flex-row', 'gap-5', 'items-center', 'justify-center', 'p-5', 'cursor-pointer');
+        if (exam.logo) {
+          const examLogo = document.createElement('div');
+          examLogo.classList.add('exam-logo');
+          const logoImg = document.createElement('img');
+          logoImg.src = exam.logo;
+          logoImg.alt = "";
+          logoImg.classList.add('w-12', 'h-12');
+          examLogo.appendChild(logoImg);
+          examCard.appendChild(examLogo);
+        }
+        examCard.addEventListener("click",()=>{
+          localStorage.setItem('selectedExam', JSON.stringify(exam));
+          navigate(`${exam.metadata.slug}`)
+        })
+
+        const examName = document.createElement('div');
+        examName.classList.add('exam-name', 'flex', 'items-center', 'justify-center');
+        const examTitle = document.createElement('h5');
+        examTitle.textContent = exam.metadata.shortForm; // Assuming exam name is the first key
+        examName.appendChild(examTitle);
+        examCard.appendChild(examName);
+        examContainer.appendChild(examCard);
+      });
+    }
+
+    async function renderCategories() {
+      const categoryContainer = document.querySelector('.exam-category');
+      categoryContainer.innerHTML = ""; // Clear existing content
+      try {
+        // Handle potential missing data gracefully
+        if (!categories.length) {
+          console.warn("Missing category data in 'category-data.json'");
+          return;
+        }
+
+        // Add "All" category at the beginning
+        const allCategoryButton = document.createElement('button');
+        allCategoryButton.classList.add('px-8', 'py-2', 'text-nowrap', 'rounded-lg', 'focus:bg-blue-700', 'active:bg-blue-800', 'mb-2');
+        allCategoryButton.textContent = "All";
+        allCategoryButton.addEventListener('click', () => handleCategory("All"));
+
+        if (selectedCategory === "All") {
+          allCategoryButton.classList.add('bg-blue-600', 'text-white'); // Add selected class
+        }
+        categoryContainer.appendChild(allCategoryButton);
+
+        categories.forEach((category) => {
+          const categoryButton = document.createElement('button');
+          categoryButton.classList.add('px-8', 'py-2', 'text-nowrap', 'rounded-lg', 'focus:bg-blue-700', 'active:bg-blue-800', 'mb-2');
+          categoryButton.textContent = category.name;
+          categoryButton.addEventListener('click', () => handleCategory(category._id));
+
+          if (selectedCategory === category._id) {
+            categoryButton.classList.add('bg-blue-600', 'text-white'); // Add selected class
+          }
+          categoryContainer.appendChild(categoryButton);
+        });
+      } catch (error) {
+        console.error("Error rendering categories:", error);
+      }
+    }
+
+    // Call renderCategories on component load to display categories initially
+    renderCategories();
+    renderExams(); // Render exams initially
+  </script>
+</body>

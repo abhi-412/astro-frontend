@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Links from "../components/Links.astro";
+export const prerender = false
+import { AsyncLocalStorage } from "async_hooks";
+// const exam = localStorage.getItem("selectedExam")
+---
+
+    <Layout>
+    <Hero />
+    <Links />
+    <section class='flex justify-center bg-gray-50'>
+
+    <div class='container lg:w-10/12 p-5 grid gap-5 grid-cols-4'>
+        <div class='col-span-4 flex flex-col gap-3 md:col-span-3'>   
+            <section id='exam-detail' class='w-full exam-detail-card col-span-3 flex justify-center py-5 '>
+                <div class='w-full p-5 mt-4 bg-white shadow '>
+                    <p id="exam-container" class='text-gray-600 m-1 overflow-hidden text-sm lg:text-base'>
+
+                    </p>
+                        <a href="" class='lg:text-base mx-1 text-blue-500 text-sm'>Read More...</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    
+    </Layout>
+
+    <script>
+        const parser = new DOMParser();
+        window.onload = function() {
+          const exam = JSON.parse(localStorage.getItem("selectedExam"));
+          if (exam) {
+            const examContainer = document.getElementById("exam-container");
+            examContainer.innerText =  exam?.additionalInformation ? parser.parseFromString(exam?.additionalInformation, "text/html")?.body?.textContent :  "NWR, CR, and SR Admit Card is Out! Candidates can download their hall tickets from the official portal.  Candidates must know their registration number and date of birth to" 
+            
+          } else {
+            // Handle the case where no exam is found in localStorage
+          }
+        };
+      </script>
