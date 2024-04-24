@@ -1,0 +1,93 @@
+---
+import { FaArrowRight } from "react-icons/fa6";
+
+
+const details3 = [
+    {item:"Result", to:"#"},
+    {item:"Admit Card", to:"#"},
+    {item:"Answer Key", to:"#"},
+    {item:"Cut Off", to:"#"}
+]
+
+    const props = Astro.props
+
+    const {regStart,regEnd,examDate,eligibility,notifLink,examName,salary,vacancy} = props;
+    const details2 = [
+        {tag:"Exam Date",info:`${examDate}`},
+        {tag:"Vacancies",info:`${vacancy}`},
+    ]
+    let details = [
+        {tag:"Registration Date",info:`${regStart} - ${regEnd}`},
+        {tag:"Salary",info:`${salary}`},
+        {tag:"Eligibility",info:`${eligibility}`},
+    ]
+---
+    
+
+                <div class="w-full container md:p-4 p-1 bg-white border border-gray-200 rounded-lg shadow py-4 sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+                   <div class="flex  justify-between">
+                        <h5 class="px-3 text-base py-3 font-semibold text-gray-900 md:text-xl dark:text-white">
+                            {examName} Overview
+                            </h5>
+                            <h5 class=" hidden lg:flex items-center text-lg font-semibold text-gray-900 dark:text-white">
+                            {examName} Important Updates
+                            </h5>
+                   </div>
+                    <div class='grid gap-2 grid-cols-3'>
+                        <ul class=" col-span-3 lg:col-span-1 ">
+                            {details.map((detail,i)=>{
+                                return(
+                                    <li key={i} class='flex gap-1 flex-col p-2 rounded-lg'>
+                                        <span style={{backgroundImage: 'linear-gradient(to left, #18eafa, #00c9ff, #00a2ff, #0071ff, #4d0af4)',}} 
+                                        class="flex-1 px-3 text-white text-wrap  py-0.5 rounded text-xs whitespace-nowrap">{detail.tag}</span>
+                                        <span class="pb-1 text-gray-600 text-sm rounded text-wrap  bg-sky-100 px-5 py-0.5  whitespace-nowrap">{detail.info}</span>
+                                    </li>
+                                )
+                            })}
+                            
+                        </ul>
+                        <ul class="col-span-3 lg:col-span-1 ">
+                            {details2.map((detail,i)=>{
+                                return(
+                                    <li key={i} class='flex gap-1 flex-col p-2 rounded-lg'>
+                                        <span style={{backgroundImage: 'linear-gradient(to left, #18eafa, #00c9ff, #00a2ff, #0071ff, #4d0af4)'}} 
+                                        class="flex-1   text-white text-wrap px-5 py-0.5 rounded text-xs whitespace-nowrap">{detail.tag}</span>
+                                        <span class="flex-1  text-gray-600 text-sm rounded text-wrap  bg-sky-100 px-5 py-0.5 whitespace-nowrap">{detail.info}</span>
+                                    </li>
+                                )
+                            })}
+                            
+                        </ul>
+
+                        {/* <div class=" lg:col-span-1 p-2 col-span-3">
+                        <h5 class="lg:hidden px-3 text-lg text-wrap font-semibold text-gray-900 dark:text-white">
+                                SSC GD 2023 Important Updates
+                            </h5>
+                            {details3.map((detail,i)=>{
+                                return <div key={i} class='flex m-2  bg-red-50 flex-col px-4 py-1 rounded-lg'>
+                                    <Link class='text-red-600' to={detail.to} >{detail.item}</Link>
+                                </div>
+                            })}
+                            <div class='px-4 '>
+                                <Link class='border-b border-sky-400 text-sky-400'>Report An Error</Link>
+                            </div>
+                        </div> */}
+  
+                        <ul class=" lg:col-span-1 mt-2 px-3 col-span-3">
+                        
+                        <li class='flex gap-1  flex-col rounded-lg'>
+                                <span style={{backgroundImage: 'linear-gradient(to left, #ff7373, #f03f7c, #d20091, #9b00ac, #0018c6)'}}
+                                    class="flex-1 px-3  text-white text-wrap  py-1 rounded text-xs whitespace-nowrap">Official Notification</span>
+                                <a href={notifLink} class="flex-1  text-gray-600 text-sm rounded text-wrap  bg-sky-100  px-2 py-1 whitespace-nowrap">Download PDF</a>
+                            </li>
+                        </ul>
+
+                        
+                    </div>
+                    <div class='flex flex-col mt-4 gap-3 px-3 py-1'>
+                             <a href={notifLink} class='flex items-center  text-nowrap overflow-clip gap-2'><span class='text-base font-semibold'>Know More about {examName}</span> <FaArrowRight /> </a>
+                             <p>Admit Card, Exam Dates, Exam Patterns, Syllabus, Eligibility and more info</p>
+                    </div>
+                       
+                </div>
+

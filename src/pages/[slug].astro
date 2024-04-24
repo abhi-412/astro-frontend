@@ -3,8 +3,50 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Links from "../components/Links.astro";
 export const prerender = false
-import { AsyncLocalStorage } from "async_hooks";
-// const exam = localStorage.getItem("selectedExam")
+const url = Astro.url?.pathname?.split('/')[1]?.toString();;
+import examData from "../../public/data.json"
+import OverviewCard from "../components/OverviewCard.astro";
+import Accordian from "../components/Accordian.astro";
+import { Parser } from 'htmlparser2';
+
+if (!url) {
+  console.warn("URL pathname not available yet");
+  // Consider displaying a loading indicator or default content
+  return null; // Or return some placeholder content
+}
+// console.log(url);
+
+const links = [
+    {name:"exam-detail", to:"#exam-detail"},
+    {name:"Overview", to:"#overview"},
+    {name:"Super Coaching", to:"#supercourse"},
+    {name:"Quizzes", to:"#quizes"},
+    {name:"Test Series", to:"#test-series"},
+    {name:"Exam Info", to:"#exam-info"}, 
+]
+
+
+const exam = examData.exams.filter((exam) => {
+  return exam?.metadata?.slug === url;
+})[0];
+
+
+function parseHTML(htmlData) {
+    const parsedData = [];
+
+    const parser = new Parser({
+        ontext(text) {
+            parsedData.push(text);
+        }
+    });
+
+    parser.write(htmlData);
+    parser.end();
+
+    return parsedData.filter(Boolean); // Filter out empty strings
+}
+// console.log(exam);
+
 ---
 
     <Layout>
@@ -13,31 +55,191 @@ import { AsyncLocalStorage } from "async_hooks";
     <section class='flex justify-center bg-gray-50'>
 
     <div class='container lg:w-10/12 p-5 grid gap-5 grid-cols-4'>
-        <div class='col-span-4 flex flex-col gap-3 md:col-span-3'>   
+        <div class='col-span-4 flex flex-col gap-12 md:col-span-3'>   
             <section id='exam-detail' class='w-full exam-detail-card col-span-3 flex justify-center py-5 '>
                 <div class='w-full p-5 mt-4 bg-white shadow '>
-                    <p id="exam-container" class='text-gray-600 m-1 overflow-hidden text-sm lg:text-base'>
-
-                    </p>
+                    <p class='text-gray-600 m-1 overflow-hidden text-sm lg:text-base'>
+                        {exam?.additionalInformation ? parseHTML(exam.additionalInformation): 
+                             "NWR, CR, and SR Admit Card is Out! Candidates can download their hall tickets from the official portal.  Candidates must know their registration number and date of birth to" 
+                             }
+                        </p>
                         <a href="" class='lg:text-base mx-1 text-blue-500 text-sm'>Read More...</a>
                     </div>
                 </section>
+            
+
+
+            <section id='overview' class='exam-overview-card flex justify-center'>
+                                    
+                                    
+                <OverviewCard 
+                regStart={exam?.applicationStartDate?.split('T')[0]}
+                regEnd={exam?.applicationEndDate?.split('T')[0]}
+                examDate={exam?.examDate?.split('T')[0]}
+                eligibility={parseHTML(exam?.eligibilityCriteria)}
+                notifLink={exam?.officialNotificationLink}
+                examName={exam?.name}
+                salary={exam?.salary ? `${exam?.salary?.minimum} - ${exam?.salary?.maximum}` : "Not Specified"}
+                vacancy={exam?.vacancy ? exam?.vacancy : "Not Released"}
+
+                />
+        </section> 
+
+        <section id='exam-info' class='bg-gray-50'>
+            <div class='flex flex-col gap-5'>
+            {exam?.staticData?.map((stData,i)=>{
+                
+                
+                return <div  class='flex flex-col gap-5'>                                   
+                        <h3 class='text-xl font-semibold'>{stData?.title}</h3>
+                        <p class='mb-0 text-base'>{parseHTML(stData.content)}</p>
+                </div>
+            })}
             </div>
+
+                <div class="my-8">
+                        <h2 class="text-xl font-semibold text-gray-900">{exam?.name}  2024 Eligibility Criteria</h2>
+                        <p class="mt-2 text-base text-gray-700">
+                            {parseHTML(exam?.eligibilityCriteria)}
+                        </p>
+                        
+                    </div>
+
+
+                    <div>
+                        <h2 id="three" class="text-2xl font-semibold text-gray-900">{exam?.name} 2024 Notification</h2>
+                        <p class="mt-2 text-base text-gray-700">
+                            {exam?.name}  Notification will be released in PDF format on the official website on June 11, 2024. You will be able to download it from the homepage. The details about important dates, vacancies, application, eligibility, pay level, exam pattern, syllabus, and more will be available in it.
+                        </p>
+
+                        <h2 id="four" class="mt-8 text-2xl font-semibold text-gray-900">{exam?.name} 2024 Vacancy</h2>
+                        <p class="mt-2 text-base text-gray-700">
+                        {exam?.name} Vacancy for 2024 will be announced in the official notification. The commission also mentions the breakdown of vacancies based on posts, departments and categories. Seeing the trends of the last 5 years, we can expect upto {exam?.vacancy ? exam.vacancy : "80000"} vacancies for 2024. However, there was an exception in the year 2022. 36012 vacancies were announced for that year, which was the highest number of {exam?.name}  vacancy ever.
+                        </p>
+
+                        <h2 id="five" class="mt-8 text-2xl font-semibold text-gray-900">{exam?.name}  2024 Selection Process: Tier 1, Tier 2 & Document Verification</h2>
+                        <p class="mt-2 text-base text-gray-700">
+                            {exam?.name} Selection Process consists of a total of three stages- Tier 1, Tier 2, and Document Verification. <strong>Tier 1 and Tier 2 are Computer-Based exams</strong> consisting of objective-type questions.<strong> Tier 1 has only one paper with four sections</strong>. While<strong> Tier 2 has a total of three stages</strong>. Paper 1 is compulsory for all the posts. However, Paper 2 are only for Junior Statistical Officer (JSO) and Statistical Investigator Grade II posts while Paper 3 is only for Assistant Audit Officer/ Assistant Accounts Officer posts.
+                        </p>
+                        <p class="mt-2 text-base text-gray-700">
+                            After clearing the Tier 1 and Tier 2 stages, you have to appear for the Document Verification round. If you fail to furnish all the required documents in support your the details mentioned in the application form, your candidature will be cancelled at once.
+                        </p>
+                        
+                    </div>
+                    
+                    
+                    
+                    <div class="mx-auto max-w-4xl px-4 py-8">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900">{exam?.name} Admit Card: Details Mentioned, Discrepancy and Helpline Number</h2>
+                        <p class="mt-2 text-base text-gray-700">
+                        {exam?.name} Admit Cards are released about 2 weeks before the exam on the regional official websites. You have to log into the respective websites using your Roll Number/ Registration Number and Password/ Date of Birth. The admit card will be available to download in the PDF format. It will have <b>details like your name, registration No., roll No., date of birth, reporting time, allotted exam center, photograph and signature, and more</b>. You need to check each detail carefully and follow the instructions given on the {exam?.name}  Admit Card.
+                        </p>
+                         <p class="mt-2 text-base text-gray-`700">
+                        In case of any discrepancy in the admit card, you must contact the authorities immediately. You can either use their <b>Helpline Number- 24360120 or visit their office at Staff Selection Commission, Block No. 12, CGO Complex, Lodhi Road, New Delhi- 110091</b>.
+                        </p> 
+                    </div>
+            
+            
+                {/* <h2 class="text-2xl font-semibold text-gray-900">{exam?.name} Previous Year Question Paper</h2> */}
+                <div class="mx-auto max-w-4xl px-4 py-8">
+                
+
+                <h2 id="thi" class="text-2xl font-semibold text-gray-900">{exam?.name} Result: Merit List & Scorecard</h2>
+                <p class="mt-2 text-base text-gray-700">
+                {exam?.name} Results are declared separately for Tier 1 and Tier 2. The Tier 2 results are the final results declared after the Document Verification round. 
+                {exam?.conductingBody} adopts Normalisation of Marks to calculate individual scores and cutoff marks. 
+                {exam?.name}  Results are released in the form of a merit list first and then scorecards. The merit lists are available for everyone but the scorecards are available only for respective candidates.
+                </p>
+
+                <h2 id="fou" class="text-2xl font-semibold text-gray-900">{exam?.name} Cutoff</h2>
+                <p class="mt-2 text-base text-gray-700">
+                {exam?.name}  Cutoff marks are declared along with or soon after the results. They are different for AAO, JSO, and other posts. The post-wise and category-wise cutoff marks for each stage are released on the official website. The <a href={exam?.officialNotificationLink} class="text-gray-600" target="_blank" rel="noopener noreferrer"><strong>{exam?.name}  cutoff</strong></a> marks are different each year as they depend upon several factors- number of vacancies, number of candidates appearing for the exam, difficulty level of the exam, and overall performances of the candidates.
+                </p>
+                <div class='flex flex-col my-4 gap-2'>
+                    <div class='flex gap-14'>
+                        <p>Year</p>
+                        <p>Marks</p>
+                    </div>
+                    {exam?.previousYearCutoffs?.map((cut)=>{
+                        return <div class='flex gap-14'>
+                            <p>{cut?.year}</p>
+                            <p>{cut?.cutoff}</p>
+                        </div>
+                    })
+                    }
+                </div>
+                <p class="my-2 text-base text-gray-700">
+                    It must be noted that<strong> {exam?.name}  cutoff marks are not the same as the minimum qualifying marks.</strong> The qualifying marks are the minimum score required to pass a paper/ stage. However, the cutoff marks if the candidate is eligible for the next stage.
+                </p>
+
+                <h2 id="fif" class="text-2xl my-5 font-semibold text-gray-900">{exam?.name} Answer Key: Provisional and Final Answer Key</h2>
+                <p class="mt-2 text-base text-gray-700">
+                {exam?.name}  Answer Keys are issued a few days after the exam but they are provisional. You can check and download them from the official website. In case of any objection to any answer, you can submit your representations within the stipulated time. You have to pay Rs. 100 per question.
+                </p>
+                <p class="mt-2 text-base text-gray-700">
+                {exam?.conductingBody} considers the representations and releases the final answer key based on the same. The results are declared based on the final {exam?.name}  Answer Key.
+                </p>
+
+                <h2 id="sixt" class="text-2xl my-5 font-semibold text-gray-900">{exam?.name} Salary</h2>
+                <p class="mt-2 text-base text-gray-700">
+                {exam?.name} Salary ranges between Rs. {exam?.salary?.minimum} to {exam?.salary?.maximum} depending on the post, department and location. The final in-hand <a href="#" class="text-gray-600 hover:text-blue-800"><b>{exam?.name}  salary</b></a> may include several allowances such as House Rent Allowance, Travel Allowance, and deductions like TS, NPS, EPF, etc.
+                </p>
+                </div>
+
+
+               
+                    
+            
+            </div>
+                <div>
+                <h2 id="faqs" class="text-2xl mt-8 font-semibold text-gray-900">{exam?.name} 2024 FAQs</h2>
+                    <Accordian />
+                </div>
+
+
+        </section>
+
+        
+
+
+</div>
+<section class='exam-pagelinks-card sticky right-40 col-span-1  md:flex md:py-8  hidden '>
+    <div style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} class='container max-h-[600px] border border-gray-200 rounded bg-white overflow-scroll hide-scrollbar flex flex-col gap-5 p-4 '>
+        <div>
+            <h3 class='text-lg font-semibold'>
+                Important Links
+            </h3>
         </div>
-    </section>
+        {links.map((link,i)=>{
+            return (
+                    <a
+                    
+                    class='border-b p-2'
+                    href={link.to}>{link.name}</a>
+            )
+        })}
+        
+    </div>
+    
+</section>
+</div>
+</section>
     
     </Layout>
 
     <script>
         const parser = new DOMParser();
-        window.onload = function() {
-          const exam = JSON.parse(localStorage.getItem("selectedExam"));
-          if (exam) {
-            const examContainer = document.getElementById("exam-container");
-            examContainer.innerText =  exam?.additionalInformation ? parser.parseFromString(exam?.additionalInformation, "text/html")?.body?.textContent :  "NWR, CR, and SR Admit Card is Out! Candidates can download their hall tickets from the official portal.  Candidates must know their registration number and date of birth to" 
-            
-          } else {
-            // Handle the case where no exam is found in localStorage
-          }
-        };
+    
+        const parseData = (htmlData)=>{
+            const newData = parser.parseFromString(htmlData,"text/html").body.textContent
+            return newData
+        }
       </script>
