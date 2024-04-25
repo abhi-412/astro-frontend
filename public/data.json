@@ -235,7 +235,126 @@
             "updatedAt": "2024-04-02T04:42:59.516Z",
             "__v": 0,
             "vacancy": 50000
-        }
+        },
+
+        {
+            "metadata": {
+              "shortForm": "NEET",
+              "slug": "national-eligibility-entrance-test"
+            },
+            "name": "National Eligibility Entrance Test (NEET)",
+            "category": {
+              "_id": "65fabf2915102164b9cbb5a7",
+              "name": "Medical",
+              "createdAt": "2024-03-20T10:49:13.542Z",
+              "updatedAt": "2024-03-20T10:49:13.542Z",
+              "__v": 0
+            },
+            "conductingBody": "National Testing Agency (NTA)",
+            "applicationStartDate": "2024-02-01T00:00:00.000Z",
+            "applicationEndDate": "2024-02-28T00:00:00.000Z",
+            "examDate": "2024-05-05T00:00:00.000Z",
+            "eligibilityCriteria": "<p>Candidates must have completed 17 years of age by the time of admission to the undergraduate medical course. They must have qualified the NEET exam and must have passed the 10+2 level examination with Physics, Chemistry, and Biology/Biotechnology as compulsory subjects.</p>",
+            "officialNotificationLink": "https://ntaneet.nic.in/",
+            "additionalInformation": "<p>The NEET is a single entrance exam for admission to undergraduate medical courses (MBBS/BDS/BAMS/BSMS) in various medical colleges across India.</p>",
+            "relatedExams": [],
+            "previousYearCutoffs": [
+              {
+                "year": 2023,
+                "cutoff": "625/720",
+                "_id": "65fc3715fc6b1c3231ae8b00"
+              },
+              {
+                "year": 2022,
+                "cutoff": "611/720",
+                "_id": "65fc3715fc6b1c3231ae8b01"
+              }
+            ],
+            "staticData": [
+              {
+                "title": "NEET Syllabus",
+                "content": "<p>The NEET syllabus covers Physics, Chemistry, and Biology (Zoology and Botany) of Class 11 and 12 NCERT curriculum.</p>",
+                "_id": "65fc3715fc6b1c3231ae8b02"
+              },
+              {
+                "title": "Preparation Tips for NEET",
+                "content": "<p>1. Focus on understanding concepts rather than rote learning. 2. Practice solving MCQs from previous years' question papers and mock tests. 3. Enroll in a coaching institute or online course for guidance. 4. Manage time effectively during the exam.</p>",
+                "_id": "65fc3715fc6b1c3231ae8b03"
+              },
+              {
+                "title": "Important Books for NEET",
+                "content": "<p>Here's a list of some recommended books for NEET preparation: Physics - NCERT Physics textbooks, HC Verma concepts of Physics. Chemistry - NCERT Chemistry textbooks, Solomon and Fryhle's Organic Chemistry. Biology - NCERT Biology textbooks, Trueman's Elementary Biology.</p>",
+                "_id": "65fc3715fc6b1c3231ae8b04"
+              }
+            ],
+            "quizzes": [],
+            "logo": "https://image.shutterstock.com/image-vector/medical-entrance-exam-neet-india-concept-260nw-2112503929.jpg",
+            "createdAt": "2024-04-24T12:55:18.123Z",
+            "updatedAt": null,
+            "__v": 0
+          },
+          {
+            "metadata": {
+              "shortForm": "IES",
+              "slug": "indian-engineering-services-examination"
+            },
+            "name": "Indian Engineering Services Examination (IES)",
+            "category": {
+              "_id": "65fabf2915102164b9cbb5a6",
+              "name": "Engineering",
+              "createdAt": "2024-03-20T10:49:13.542Z",
+              "updatedAt": "2024-03-20T10:49:13.542Z",
+              "__v": 0
+            },
+            "conductingBody": "Union Public Service Commission (UPSC)",
+            "applicationStartDate": "2024-01-01T00:00:00.000Z",
+            "applicationEndDate": "2024-02-29T00:00:00.000Z",
+            "examDate": "Prelims - May (Date varies), Mains - July/August (Date varies)",
+            "eligibilityCriteria": "<p>Candidates must hold a bachelor's degree in Engineering or equivalent from a recognized university. The minimum age limit is 21 years.</p>",
+            "officialNotificationLink": "https://upsc.gov.in/exams/engineering-services-exam-ies",
+            "additionalInformation": "<p>The IES exam is a national-level recruitment exam conducted by the UPSC for recruitment to various engineering positions in the Government of India. It is a highly competitive exam with three stages: Preliminary Examination, Mains Examination, and Interview.</p>",
+            "relatedExams": [
+              {
+                "_id": "65fc3716fc6b1c3231ae8b05",
+                "name": "GATE (Graduate Aptitude Test in Engineering)"
+              }
+            ],
+            "previousYearCutoffs": [
+              {
+                "year": 2023,
+                "cutoff": "Varies by discipline",
+                "_id": "65fc3716fc6b1c3231ae8b06"
+              },
+              {
+                "year": 2022,
+                "cutoff": "Varies by discipline",
+                "_id": "65fc3716fc6b1c3231ae8b07"
+              }
+            ],
+            "staticData": [
+              {
+                "title": "IES Exam Pattern",
+                "content": "<p>The IES exam pattern consists of three stages: <br> 1. Preliminary Examination (Objective type) <br> 2. Mains Examination (Written) <br> 3. Interview</p>",
+                "_id": "65fc3716fc6b1c3231ae8b08"
+              },
+              {
+                "title": "Syllabus for IES Exam",
+                "content": "<p>The syllabus for the IES exam varies depending on the engineering discipline chosen by the candidate. However, it generally covers core engineering subjects, mathematics, general studies, and engineering drawing.</p>",
+                "_id": "65fc3716fc6b1c3231ae8b09"
+              },
+              {
+                "title": "Preparation Tips for IES",
+                "content": "<p>1. Start preparing early and follow a well-structured study plan. 2. Focus on understanding fundamental concepts and solving previous years' question papers. 3. Practice answer writing for the Mains exam. 4. Enroll in a coaching institute or online course for guidance (optional).</p>",
+                "_id": "65fc3716fc6b1c3231ae8b10"
+              }
+            ],
+            "quizzes": [],
+            "logo": "https://www.pscwb.gov.in/writereaddata/images/ies.jpg",
+            "createdAt": "2024-04-24T12:55:18.123Z",
+            "updatedAt": null,
+            "__v": 0
+          }
+          
     ],
     "page": 1,
     "totalPages": 1,

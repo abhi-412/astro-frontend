@@ -1,0 +1,78 @@
+---
+import Accordian from "../components/Accordian.astro";
+import Layout from "../layouts/Layout.astro";
+
+const data=[
+                {q:"How often are job listings updated on SarkariPaper.in?",a:"We strive to update our job listings regularly, ensuring you have access to the latest government job opportunities."},
+                {q:"Can I find information about state-specific government jobs on this platform?",a:"Yes, you can find information about government job opportunities at both the central and state levels."},
+                {q:"Is there a fee for accessing SarkariPaper.in's services?",a:"No, our platform is entirely free to use. We believe in providing access to government job information to all."},
+                {q:"Are the results and answer keys provided on the website accurate and official?",a:"We strive to provide accurate and up-to-date information; however, for official confirmation, we recommend visiting the respective official websites."}
+  ]
+---
+
+<Layout>
+   
+    
+    <section class="flex justify-center mt-24 bg-gray-100 p-5">
+        <article class="py-8 w-10/12 flex flex-col gap-7 text-gray-800">
+            <div class="">
+                <h1 class="text-4xl text-center font-bold mb-6">About us</h1>  
+            </div>
+                <div class="flex flex-col gap-4 px-4">  
+                    <p class="text-lg font-semibold leading-7 text-center">Welcome to SarkariPaper.in, your trusted source for the latest updates on Sarkari Results, Sarkari Exams, and Sarkari Naukri. We are dedicated to helping you navigate the world of government jobs with ease and confidence.</p>
+                    <p class="font-bold text-center text-3xl my-3 text-black">Our Mission</p>
+                    <p class="text-base italic text-gray-600 mb-5">"At SarkariPaper.in, our mission is to empower individuals like you with valuable 
+                      information and resources to kickstart or advance your career in the public sector. We understand the 
+                      importance of staying informed about government job opportunities, and we're here to make that process as 
+                      seamless as possible."</p>
+                </div>
+            
+            <div class="flex flex-col gap-4 px-4">
+              <p class="font-bold text-center text-3xl text-black mb-3">What We Offer</p>
+              
+                <ul class="flex flex-col gap-4">
+                    <li class="list-item text-lg"> 
+                    <span class="font-semibold text-lg text-black">Latest Job Updates</span>: Stay up-to-date with the most recent government job listings, ensuring you never miss out on an opportunity.
+                    </li>
+                    <li class="list-item text-lg">
+                      <span class="font-semibold  text-lg text-black">Online Forms</span>: Access and fill out online application forms for various government exams and positions.
+                    </li>
+                    <li class="list-item text-lg">
+                      <span class="font-semibold   text-lg text-black">Result and Answer Key</span>: Find detailed result listings and answer keys to gauge your performance.
+                    </li>
+                    <li class="list-item text-lg">
+                      <span class="font-semibold   text-lg text-black">Syllabus</span>: Obtain comprehensive syllabus information to prepare effectively for your exams.
+                    </li>
+                    <li class="list-item text-lg">
+                      <span class="font-semibold   text-black">Admit Card</span>: Download admit cards to appear for exams or interviews hassle-free.
+                    </li>
+                    <li class="list-item text-lg">
+                      <span class="font-semibold   text-black">Admission Form</span>: Access admission forms for educational institutions and courses.
+                    </li>
+                    <li class="list-item ">
+                      <span class="font-semibold text-lg text-black">Scholarship Information</span>: Discover scholarship opportunities and access scholarship application forms.
+                    </li>
+                    <li class="list-item text-lg">
+                      <span class="font-semibold    text-black">UP Scholarship Status</span>: Track the status of your Uttar Pradesh scholarship application.
+                    </li>
+                    <li class="list-item text-lg">
+                      <span class="font-semibold   text-lg text-black">Comprehensive Exam Coverage</span>: We cover a wide range of exams, including RRB NTPC, Railway Group D, Bihar Police SI, UP TGT PGT, UP Police, SSC CGL, SSC MTS, Airforce, IBPS PO, IBPS Clerk, Army Rally, UPSC, NIELIT, CCC, UPSSC Lower PCS, and many more.
+                    </li>
+                  </ul>
+              </div>
+              <div class="flex flex-col gap-4 px-4">
+                <p class="font-bold text-3xl text-center my-3 text-black">FAQs (Frequently Asked Questions)</p>
+                <Accordian 
+                  data={data}
+                />
+              
+         </div>
+         <div>
+          <p class="text-lg ">At SarkariPaper.in, we are committed to simplifying your journey towards securing a Sarkari Naukri. Whether you're a job seeker or a scholarship applicant, we're here to assist you every step of the way.</p>
+
+         </div>
+        
+        </article>
+    </section>
+    
+</Layout>

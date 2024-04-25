@@ -2,14 +2,17 @@
 import { Image } from "astro:assets"
 import Categories from "../components/Categories.astro"
 import { HiUserGroup } from "react-icons/hi";
-import { PiExam } from "react-icons/pi";
-import { MdQuiz } from "react-icons/md";
-import { CgNotes } from "react-icons/cg";
+// import { PiExam } from "react-icons/pi";
+// import { MdQuiz } from "react-icons/md";
+// import { CgNotes } from "react-icons/cg";
+import { IoMdLaptop } from "react-icons/io";
+import { ImTablet } from "react-icons/im";
+import { LiaTabletAltSolid } from "react-icons/lia";
+import { AiOutlineMobile } from "react-icons/ai";
 import Hero from "../components/Hero.astro";
 import examData from "../../public/data.json"; // Adjust path as needed
 import categoryData from "../../public/categories.json";
 import NotificationCard from "../components/NotificationCard.astro"
-import Ccategories from "../components/Ccategories";
 ---
 
 <style>
@@ -45,22 +48,22 @@ import Ccategories from "../components/Ccategories";
   <section class='flex p-5 justify-center items-center py-5'>
     <div style={{backgroundImage: 'radial-gradient(circle, rgba(252,224,236,1) 44%, rgba(217,231,248,1) 100%)'}} class="shadow-lg container lg:w-5/6 text-center text-lg-start my-4 md:px-5 py-4  lg:px-10 lg:py-3">
       <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div class="flex flex-col justify-center items-center gap-5 md:px-5 px-2 lg:px-10 ">
+        <div class="flex flex-col justify-center items-center py-12 gap-5 md:px-5 px-2 lg:px-10 ">
           <div class='hidden lg:block'>
-            <h2 class="text-2xl text-start font-bold leading-12">Sarkari Naukri, the one stop shop for all sarkari Naukri Updates and courses </h2>
+            <h2 class="text-2xl text-start font-bold leading-12">Sarkari Paper, the one stop shop for all sarkari Paper Updates and courses </h2>
           </div>
           <div class=" flex flex-col items-start  gap-4">
             <p class='mb-3 hidden lg:block lg:text-lg text-start'>
-              Passion-driven mentors & instructors who believe in exam-oriented preparation
+              We are your one-stop destination for all things Sarkari Result, Sarkari Exam, and Sarkari Naukri, where we provide you with the latest updates on top government jobs. Are you on the lookout for the most recent job opportunities, online forms, exam results, answer keys, syllabus details, admit cards, admission forms, and scholarship information? Look no further! SarkariPaper.in has got you covered. 
             </p>
             {/* <a href={'#'} rel="noreferrer" target="_blank" class="hidden lg:inline-block px-6 py-3 lg:text-lg bg-yellow-400 text-black rounded-lg">Explore IAS courses</a> */}
           </div>
         </div>
-        <div class="p-2 flex flex-col">
+        <div class="p-12 flex flex-col">
           <div class="w-full">
-            <img alt="Prepp IAS Preparation" src='images/new-pic.jpg' decoding="async" class="w-full max-h-64 object-cover rounded-lg" />
+            <img alt="Sarkari Naukri Banner" src='images/new-pic.jpg' decoding="async" class="w-full max-h-64 object-cover rounded-lg" />
           </div>
-          <div class='bg-white  gap-5 mt-3 rounded-lg p-4 grid grid-cols-2 md:grid-cols-4'>
+          <!-- <div class='bg-white  gap-5 mt-3 rounded-lg p-4 grid grid-cols-2 md:grid-cols-4'>
             <div class='flex flex-col items-center justify-center'>
                 <span class='text-3xl text-yellow-600' >
                   <HiUserGroup />
@@ -88,7 +91,7 @@ import Ccategories from "../components/Ccategories";
               
               <p class='text-wrap text-gray-600'>Daily Study Notes</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="px-6 flex flex-col gap-5 py-4 lg:hidden">
@@ -101,7 +104,7 @@ import Ccategories from "../components/Ccategories";
     </div>
   </section>
 
-  <section class='flex p-5 justify-center items-center py-5'>
+  <!-- <section class='flex p-5 justify-center items-center py-5'>
     <div class="my-4 container lg:w-5/6 text-center text-lg-start py-4 lg:py-3">
       <div class='flex justify-start'>
         <h2 class="text-xl font-semibold">Notifications</h2>
@@ -113,7 +116,7 @@ import Ccategories from "../components/Ccategories";
         <NotificationCard />
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <div id="banner" class="flex flex-col bg-gray-50 py-5 mt-8 justify-center">
@@ -129,12 +132,14 @@ import Ccategories from "../components/Ccategories";
       <div class="overflow-hidden">
         <div class="marquee-container flex">
           <div class="marquee-content">
-            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
-            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
-            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
-            <img class="marquee-image" src="https://image.prepladder.com/content/0XXs5ro6hnN7TWfS4HDR1673348895.webp" alt="animal1"  />
-            <img class="marquee-image" src="https://image.prepladder.com/content/79f7jYBrRgLuype0ZdMC1673348949.webp" alt="animal2"  />
-            <img class="marquee-image" src="https://image.prepladder.com/content/39CkeCpGjf37wHNh1R0P1676549127.webp" alt="animal3"  />
+            <IoMdLaptop className="text-6xl marquee-image" />
+            <AiOutlineMobile className="text-6xl marquee-image" />
+            <ImTablet className="text-6xl marquee-image" />
+            <LiaTabletAltSolid className="text-8xl marquee-image" />
+            <IoMdLaptop className="text-6xl marquee-image" />
+            <AiOutlineMobile className="text-6xl marquee-image" />
+            <ImTablet className="text-6xl marquee-image" />
+            <LiaTabletAltSolid className="text-8xl marquee-image" />
             </div>
         </div>
       </div>
@@ -151,7 +156,7 @@ import Ccategories from "../components/Ccategories";
 function createMarquee(containerElement, contentElement, scrollSpeed) {
 
 // Set default scroll speed if not provided
-scrollSpeed = scrollSpeed || 50; // Adjust speed as desired (pixels per second)
+scrollSpeed = scrollSpeed || 0; // Adjust speed as desired (pixels per second)
 
 // Get element width
 const elementWidth = containerElement.offsetWidth;
@@ -188,6 +193,6 @@ const marqueeContainer = document.querySelector('.marquee-container');
   const marqueeContent = document.querySelector('.marquee-content');
 
 
-createMarquee(marqueeContainer, marqueeContent, 40); // Adjust speed if needed
+createMarquee(marqueeContainer, marqueeContent,40); // Adjust speed if needed
 
   </script>

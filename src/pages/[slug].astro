@@ -7,6 +7,9 @@ const url = Astro.url?.pathname?.split('/')[1]?.toString();;
 import examData from "../../public/data.json"
 import OverviewCard from "../components/OverviewCard.astro";
 import Accordian from "../components/Accordian.astro";
+import sanitizeHtml from 'sanitize-html';
+// import MarkdownIt from 'markdown-it';
+// const parser = new MarkdownIt();
 import { Parser } from 'htmlparser2';
 
 if (!url) {
@@ -15,6 +18,14 @@ if (!url) {
   return null; // Or return some placeholder content
 }
 // console.log(url);
+// a11="Check out this guide to learn how to "
+//                     a12="and start taking tests."
+
+const data = [{q:"Can I attempt a test multiple times?",a:"A test can be attempted only once. However, you can refer to the Test Series e-book including the solutions as many times as you want."},
+{q:"Do you also provide solutions for the questions?",a:"Yes, detailed solutions will be available to you after you finish the test. You will be able to access these solutions anytime after you have taken the test."},
+{q:"If I am unavailable on the day of Live Test, can I attempt the test on any other day?",a:"No, you cannot attempt the test at any point other than the given time because appearing for the test at any other time will lose its value as a Live Test and it will be considered like any other practice test. Once the Live Test is over, you will be able to see the test along with its solutions."},
+{q:"What if my computer gets disconnected from internet during the test?",a:"No need to panic. We auto-pause your test and you can resume the test from where you left. You can also manually pause a test by clicking on the 'Pause' icon on the top left corner inside the timer circle. Please note that these functionalities are not available in a Live Test. Kindly ensure that you have an uninterrupted internet and power connection during the Live Tests."
+}]
 
 const links = [
     {name:"exam-detail", to:"#exam-detail"},
@@ -40,7 +51,7 @@ function parseHTML(htmlData) {
         }
     });
 
-    parser.write(htmlData);
+    // parser.write(htmlData);
     parser.end();
 
     return parsedData.filter(Boolean); // Filter out empty strings
@@ -201,7 +212,9 @@ function parseHTML(htmlData) {
             </div>
                 <div>
                 <h2 id="faqs" class="text-2xl mt-8 font-semibold text-gray-900">{exam?.name} 2024 FAQs</h2>
-                    <Accordian />
+                    <Accordian 
+                    data={data}
+                    />
                 </div>
 
 
