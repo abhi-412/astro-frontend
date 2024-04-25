@@ -51,7 +51,7 @@ function parseHTML(htmlData) {
         }
     });
 
-    // parser.write(htmlData);
+    parser.write(htmlData);
     parser.end();
 
     return parsedData.filter(Boolean); // Filter out empty strings
