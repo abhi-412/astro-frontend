@@ -31,17 +31,20 @@ const Navbar = () => {
     }, []);
     
     const toggleDarkMode = () => {
-      const storedDarkMode = localStorage.getItem('isDarkMode');
-      if (storedDarkMode === 'false') {
-        document.documentElement.classList.add('dark');
-        setIsDarkMode(true);
-      } else {
-        document.documentElement.classList.remove('dark');
-        setIsDarkMode(false);
-      }
-      // Update local storage with the new state
-      localStorage.setItem('isDarkMode', isDarkMode.toString());
+        // Update local storage with the new state first
+        localStorage.setItem('isDarkMode', (!isDarkMode).toString());
+    
+        // Update the dark mode state and apply it immediately
+        setIsDarkMode(!isDarkMode);
+    
+        // Apply or remove 'dark' class based on the new state
+        if (!isDarkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
     };
+    
 
 
 

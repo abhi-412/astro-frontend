@@ -6,6 +6,7 @@ export const prerender = false
 const url = Astro.url?.pathname?.split('/')[1]?.toString();;
 import examData from "../../public/data.json"
 import OverviewCard from "../components/OverviewCard.astro";
+import ExamInfo from "../components/ExamInfo";
 import Accordian from "../components/Accordian.astro";
 import sanitizeHtml from 'sanitize-html';
 // import MarkdownIt from 'markdown-it';
@@ -67,16 +68,7 @@ function parseHTML(htmlData) {
 
     <div class='container lg:w-10/12 p-5 grid gap-5 grid-cols-4'>
         <div class='col-span-4 flex flex-col gap-12 md:col-span-3'>   
-            <section id='exam-detail' class='w-full exam-detail-card col-span-3 flex justify-center py-5 '>
-                <div class='w-full p-5 mt-4 bg-white shadow dark:bg-gray-900 dark:text-white'>
-                    <p class='text-gray-600 dark:text-white m-1 overflow-hidden text-sm lg:text-base'>
-                        {exam?.additionalInformation ? parseHTML(exam.additionalInformation): 
-                             "NWR, CR, and SR Admit Card is Out! Candidates can download their hall tickets from the official portal.  Candidates must know their registration number and date of birth to" 
-                             }
-                        </p>
-                        <a href={exam?.officialNotificationLink} class='lg:text-base mx-1 text-blue-500 text-sm'>Read More...</a>
-                    </div>
-                </section>
+            <ExamInfo exam={exam} client:load/>
             
 
 

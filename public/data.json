@@ -1,40 +1,62 @@
 {
   "exams": [
-      {
-          "metadata": {
-              "shortForm": "CE",
-              "slug": "ctet-exam"
-          },
-          "salary": {
-              "minimum": 40000,
-              "maximum": 120000
-          },
-          "_id": "660e6cbd03b4b462c7448e92",
-          "name": "CTET Exam",
-          "category": {
-              "_id": "65fabf3615102164b9cbb5a9",
-              "name": "Teaching",
-              "createdAt": "2024-03-20T10:49:26.161Z",
-              "updatedAt": "2024-03-20T10:49:26.161Z",
-              "__v": 0
-          },
-          "conductingBody": "male",
-          "applicationStartDate": "2023-12-12T00:00:00.000Z",
-          "applicationEndDate": "2024-09-21T00:00:00.000Z",
-          "examDate": "2024-10-12T00:00:00.000Z",
-          "eligibilityCriteria": "<p>must have done their graduaction</p>",
-          "officialNotificationLink": "https://ctet.nic.in/",
-          "additionalInformation": "<p>brehrnfrejn</p>",
-          "relatedExams": [],
-          "previousYearCutoffs": [],
-          "staticData": [],
-          "vacancy": 210,
-          "quizzes": [],
-          "logo": "https://res.cloudinary.com/dxbqahnbr/image/upload/v1712223862/pgycv7uuhtskjqlbwlee.png",
-          "createdAt": "2024-04-04T09:02:53.757Z",
-          "updatedAt": "2024-04-04T09:44:23.384Z",
-          "__v": 0
+    {
+      "metadata": {
+        "shortForm": "CTET",
+        "slug": "ctet-exam"
       },
+      "salary": {
+        "minimum": 400000,
+        "maximum": 1200000
+      },
+      "_id": "660e6cbd03b4b462c7448e92",
+      "name": "Central Teacher Eligibility Test (CTET)",
+      "category": {
+        "_id": "65fabf3615102164b9cbb5a9",
+        "name": "Teaching",
+        "createdAt": "2024-03-20T10:49:26.161Z",
+        "updatedAt": "2024-03-20T10:49:26.161Z",
+        "__v": 0
+      },
+      "conductingBody": "Central Board of Secondary Education (CBSE)",
+      "applicationStartDate": "2023-12-12T00:00:00.000Z",
+      "applicationEndDate": "2024-09-21T00:00:00.000Z",
+      "examDate": "2024-10-12T00:00:00.000Z",
+      "eligibilityCriteria": "<p>Applicants must have completed graduation from a recognized university.</p>",
+      "officialNotificationLink": "https://ctet.nic.in/",
+      "additionalInformation": "<p>The Central Teacher Eligibility Test (CTET) is a national level examination conducted by the Central Board of Secondary Education (CBSE) to assess the eligibility of candidates for teaching positions in primary and upper primary schools across India. The exam is held twice a year, usually in July and December.</p><p>CTET consists of two papers - Paper-I for candidates aspiring to teach classes I to V, and Paper-II for candidates aspiring to teach classes VI to VIII. The eligibility criteria include having a graduation degree and completing a teacher training program recognized by the National Council for Teacher Education (NCTE).</p><p>Preparing for CTET requires a thorough understanding of the syllabus, exam pattern, and previous year question papers. Candidates should focus on mastering the concepts and practicing problem-solving to excel in the exam.</p><p>Top rank holders in CTET have gone on to become successful educators in various schools and institutions across the country.</p>",
+      "relatedExams": [],
+      "previousYearCutoffs": [],
+      "staticData": [
+        {
+          "title": "History of CTET Examination",
+          "content": "<p><span style=\"color: rgb(4, 81, 165);\">The Central Teacher Eligibility Test (CTET) was first conducted in 2011 by the Central Board of Secondary Education (CBSE) to ensure minimum standards for teaching quality in schools. Since then, it has become a crucial examination for aspiring teachers in India.</span></p>",
+          "_id": "660b85ced1456cbb9fe5667d"
+        },
+        {
+          "title": "Meaning of CTET Examination",
+          "content": "<p><span style=\"color: rgb(4, 81, 165);\">The Central Teacher Eligibility Test (CTET) is a qualifying examination for candidates who wish to pursue a career in teaching. It evaluates the candidates' proficiency in teaching and subject knowledge, ensuring that only qualified individuals enter the teaching profession.</span></p>",
+          "_id": "660b85ced1456cbb9fe5667e"
+        },
+        {
+          "title": "Preparation Tips for CTET",
+          "content": "<ol><li><span style=\"color: rgb(4, 81, 165);\">Understand the CTET syllabus and exam pattern thoroughly.</span></li><li><span style=\"color: rgb(4, 81, 165);\">Practice previous years' CTET question papers to familiarize yourself with the exam format.</span></li><li><span style=\"color: rgb(4, 81, 165);\">Focus on fundamental concepts and pedagogical theories.</span></li><li><span style=\"color: rgb(4, 81, 165);\">Take regular mock tests to assess your preparation level.</span></li><li><span style=\"color: rgb(4, 81, 165);\">Stay updated with current affairs and educational trends.</span></li></ol>",
+          "_id": "660b85ced1456cbb9fe5667f"
+        },
+        {
+          "title": "Top Rank Holders in CTET",
+          "content": "<ol><li><span style=\"color: rgb(4, 81, 165);\">XYZ - 2018</span></li><li><span style=\"color: rgb(4, 81, 165);\">ABC - 2019</span></li><li><span style=\"color: rgb(4, 81, 165);\">PQR - 2020</span></li></ol>",
+          "_id": "660b85ced1456cbb9fe56680"
+        }
+      ],
+      "vacancy": 210,
+      "quizzes": [],
+      "logo": "https://res.cloudinary.com/dxbqahnbr/image/upload/v1712223862/pgycv7uuhtskjqlbwlee.png",
+      "createdAt": "2024-04-04T09:02:53.757Z",
+      "updatedAt": "2024-04-04T09:44:23.384Z",
+      "__v": 0
+    }
+    ,
       {
           "metadata": {
               "shortForm": "JEE",
@@ -193,7 +215,7 @@
           "examDate": "2024-11-15T00:00:00.000Z",
           "eligibilityCriteria": "<p>Candidates must hold a bachelor's degree in any discipline from a recognized university. The minimum age limit is 20 years and the maximum age limit varies for different posts.</p>",
           "officialNotificationLink": "https://ssc.nic.in/",
-          "additionalInformation": "<p>The SSC Combined Graduate Level Examination (SSC CGL) is conducted by the Staff Selection Commission to recruit staff for various posts in ministries, departments, and organizations of the Government of India.</p>",
+          "additionalInformation": "<p>The SSC Combined Graduate Level Examination (SSC CGL) is one of the most sought-after examinations for graduate-level jobs in the Indian government. It offers a wide range of positions in various ministries, departments, and organizations across the country. The exam is conducted annually by the Staff Selection Commission (SSC), which is a premier recruiting agency of the Government of India.</p><p>SSC CGL recruits candidates for Group B and Group C posts in government departments and ministries. The exam consists of four tiers: Tier-I (Computer Based Examination), Tier-II (Computer Based Examination), Tier-III (Pen and Paper Mode), and Tier-IV (Computer Proficiency Test/ Skill Test/ Document Verification). The eligibility criteria for SSC CGL require applicants to have completed a Bachelor's degree in any discipline from a recognized university. For more details and official notifications, applicants can visit the official website of the Staff Selection Commission (SSC).</p>",
           "relatedExams": [],
           "previousYearCutoffs": [
               {
@@ -256,7 +278,7 @@
           "examDate": "2024-05-05T00:00:00.000Z",
           "eligibilityCriteria": "<p>Candidates must have completed 17 years of age by the time of admission to the undergraduate medical course. They must have qualified the NEET exam and must have passed the 10+2 level examination with Physics, Chemistry, and Biology/Biotechnology as compulsory subjects.</p>",
           "officialNotificationLink": "https://ntaneet.nic.in/",
-          "additionalInformation": "<p>The NEET is a single entrance exam for admission to undergraduate medical courses (MBBS/BDS/BAMS/BSMS) in various medical colleges across India.</p>",
+          "additionalInformation": "<p>The National Eligibility cum Entrance Test (NEET) is a national-level entrance examination conducted for admission to undergraduate medical courses such as MBBS, BDS, BAMS, and BSMS in medical colleges across India. NEET is the only entrance exam accepted for admission to these courses, replacing all other medical entrance exams conducted by individual states or institutions.</p><p>NEET is conducted by the National Testing Agency (NTA) and is held once a year. The exam consists of multiple-choice questions (MCQs) covering subjects such as Physics, Chemistry, and Biology (Botany and Zoology). To be eligible for NEET, candidates must have completed 10+2 with Physics, Chemistry, Biology/Biotechnology, and English as core subjects. Additionally, candidates must meet the age limit criteria as specified by the exam conducting authority.</p><p>NEET scores are used by various medical colleges and universities for admission to undergraduate medical courses. The exam is highly competitive, and candidates often undergo rigorous preparation to secure admission to prestigious medical institutions.</p>",
           "relatedExams": [],
           "previousYearCutoffs": [
             {
