@@ -2,6 +2,7 @@
 ---
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer.astro';
+import type { only } from 'node:test';
 
 interface Props {
   title?: string,
@@ -21,8 +22,8 @@ const { title = "Sarkari Paper", description = "The sarkari paper website page" 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen">
-    <Navbar client:load />
+  <body class="min-h-screen dark:bg-black">
+    <Navbar  client:only />
     <slot />  
 	<Footer />
   </body>

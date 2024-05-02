@@ -45,7 +45,7 @@ import NotificationCard from "../components/NotificationCard.astro"
 
   <Categories examData={examData} categoryData={categoryData} />
 
-  <section class='flex p-5 justify-center items-center py-5'>
+  <section class='flex p-5 justify-center dark:bg-black items-center py-5'>
     <div style={{backgroundImage: 'radial-gradient(circle, rgba(252,224,236,1) 44%, rgba(217,231,248,1) 100%)'}} class="shadow-lg container lg:w-5/6 text-center text-lg-start my-4 md:px-5 py-4  lg:px-10 lg:py-3">
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="flex flex-col justify-center items-center py-12 gap-5 md:px-5 px-2 lg:px-10 ">
@@ -119,11 +119,11 @@ import NotificationCard from "../components/NotificationCard.astro"
   </section> -->
 
 
-  <div id="banner" class="flex flex-col bg-gray-50 py-5 mt-8 justify-center">
+  <div id="banner" class="flex flex-col dark:bg-black bg-gray-50 py-5 mt-8 justify-center">
     <div class="w-10/12 mx-auto px-4">
       <div class="text-center flex flex-col gap-3">
-        <div class=" text-lg font-semibold md:text-2xl text-blue-600 lg:text-4xl">Access Sarkari Naukri from the platform of your choice</div>
-        <div class="font-semibold text-gray-600 mb-5 text-sm md:text-base lg:text-lg">Learn at your own pace and make the most of our top-quality content using the device of your choice.</div>
+        <div class=" text-lg font-semibold md:text-2xl text-blue-600 dark:text-gray-50 lg:text-4xl">Access Sarkari Naukri from the platform of your choice</div>
+        <div class="font-semibold text-gray-600 dark:text-gray-300 mb-5 text-sm md:text-base lg:text-lg">Learn at your own pace and make the most of our top-quality content using the device of your choice.</div>
       </div>
     </div>
   
@@ -131,7 +131,7 @@ import NotificationCard from "../components/NotificationCard.astro"
     <div class="mt-3 pb-4">
       <div class="overflow-hidden">
         <div class="marquee-container flex">
-          <div class="marquee-content">
+          <div class="marquee-content dark:text-white">
             <IoMdLaptop className="text-6xl marquee-image" />
             <AiOutlineMobile className="text-6xl marquee-image" />
             <ImTablet className="text-6xl marquee-image" />

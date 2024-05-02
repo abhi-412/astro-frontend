@@ -3,22 +3,13 @@ import Image from "astro/components/Image.astro";
 ---
 
 <section
-  style={{backgroundImage: 'linear-gradient(to bottom, #fff 0%, #f0f7ff 100%)'}}
-  class="bg-gradient-to-b from-white to-f0f7ff flex w-full mt-12 md:mt-24 py-5 justify-center">
-    <div class="container mx-auto px-4 md:w-10/12 grid grid-cols-1 md:grid-cols-3 py-5">
-
-      <div class="hidden md:flex col-span-1  justify-end">
-        <div class="flex w-full items-center justify-center">
-          <Image src="/images/student-img.jpg" alt="Image Description" width={300} height={300} />
-
-          <!-- <img src="/images/student-img.jpg" alt="Student" class="max-h-84 w-10/12" /> -->
-        </div>
-      </div>
+  class="bg-gradient-to-b from-white  to-blue-50 dark:text-white dark:bg-gradient-to-b dark:from-black  flex  w-full  py-5 justify-center">
+    <div class=" mx-auto px-4 w-full md:px-10 grid grid-cols-1 md:grid-cols-3 py-5">
 
       <div class="md:col-span-2 flex justify-center p-2 md:p-5 col-span-1">
         <div class="flex flex-col md:gap-8 gap-5 p-3 w-full h-full items-start justify-center">
-          <h2 class="font-semibold text-base lg:text-3xl md:text-2xl">One Destination for Complete Exam Preparation</h2>
-          <p class="text-sm text-gray-800 md:text-base">Welcome to SarkariPaper.in - your one-stop destination for all things Sarkari Result, Sarkari 
+          <h2 class="font-semibold text-xl text-center leading-8 lg:text-5xl md:text-3xl">Your destination for Complete Exam Preparation</h2>
+          <p class="text-sm text-center text-gray-800 dark:text-white md:px-12 md:text-base lg:text-lg">Welcome to SarkariPaper.in - your one-stop destination for all things Sarkari Result, Sarkari 
             Exam, and Sarkari Naukri, where we provide you with the latest updates on top government jobs.
              Are you on the lookout for the most recent job opportunities, online forms, exam results, answer keys, 
              syllabus details, admit cards, admission forms, and scholarship information? Look no further! SarkariPaper.in has got you covered. </p>
@@ -27,12 +18,20 @@ import Image from "astro/components/Image.astro";
             <button class="bg-teal-500 hover:bg-teal-600 transform transition-transform duration-300 hover:scale-110 text-xs md:text-sm text-white px-5 py-3 rounded-lg">Become a member</button>
           </div> -->
         </div>
+        
+      </div>
+      <div class="hidden md:flex col-span-1  justify-end">
+        <div class="flex w-full items-center justify-center">
+          <!-- <Image src="/images/student-img.jpg" alt="Image Description" width={300} height={300} /> -->
+
+          <img src="/images/student-img.png" alt="Student" class="max-h-84 w-full md:w-10/12" />
+        </div>
       </div>
 
       <div class="col-span-1 md:hidden flex justify-end">
         <div class="flex w-full items-center justify-center">
-          <Image src="/images/student-img.jpg" alt="Image Description" width={300} height={300} />
-          <!-- <img src="/images/student-img.jpg" alt="Student" class="max-h-48" /> -->
+          <!-- <Image src="/images/student-img.jpg" alt="Image Description" width={300} height={300} /> -->
+          <img src="/images/student-img.png" alt="Student" class="max-h-64 " />
         </div>
       </div>
     </div>
